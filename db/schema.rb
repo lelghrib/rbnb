@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_29_100651) do
+ActiveRecord::Schema.define(version: 2019_05_30_124557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2019_05_29_100651) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
-    t.string "photo"
+    t.string "photo", default: "surf.jpg"
     t.index ["seller_id"], name: "index_activities_on_seller_id"
   end
 
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 2019_05_29_100651) do
     t.datetime "updated_at", null: false
     t.index ["activity_id"], name: "index_bookings_on_activity_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "content"
+    t.integer "rating"
+    t.bigint "activity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_reviews_on_activity_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,4 +79,5 @@ ActiveRecord::Schema.define(version: 2019_05_29_100651) do
   add_foreign_key "activities", "users", column: "seller_id"
   add_foreign_key "bookings", "activities"
   add_foreign_key "bookings", "users"
+  add_foreign_key "reviews", "activities"
 end

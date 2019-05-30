@@ -39,6 +39,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     authorize @activity
     @booking = Booking.new
+    @review = Review.new
   end
 
   private
