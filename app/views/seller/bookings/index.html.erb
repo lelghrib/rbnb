@@ -1,0 +1,35 @@
+<div class="container p-4">
+  <% if @bookings == [] %>
+    <p>You don't have any bookings yet</p>
+  <% else %>
+    <% @bookings.each do |booking| %>
+      <div class="card-product card-product-margin-content">
+        <%= cl_image_tag booking.activity.photo, height: 300, width: 400, crop: :fill %>
+        <div class="card-product-infos">
+          <h2><%= booking.activity.name %></h2>
+          <div class="card-product-infos-details">
+            <p>Date: <%= booking.date.strftime("%Y-%d-%m") %></p>
+            <p> <%= booking.participants_number %> <i class="fas fa-user-friends"></i></p>
+            <p> Total price: <%= booking.total_price %>€</p>
+          </div>
+        </div>
+        <div class="card-product-status">
+          <h2>
+          <% if booking.status == "pending" %>
+            <div class="confirmation-buttons d-flex">
+            <a href="" class="btn btn-outline-primary mr-2">Confirm</a>
+            <a href="" class="btn btn-outline-danger">Decline</a>
+            </div>
+          <% elsif booking.status == "confirmed" %>
+            <i class="fas fa-check"></i>
+            <%= booking.status.capitalize %>
+          <% else %>
+            <i class="far fa-times-circle"></i>
+            <%= booking.status.capitalize %>
+          <% end %>
+          </h2>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

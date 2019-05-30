@@ -13,7 +13,7 @@ class ActivitiesController < ApplicationController
     end
 
     if params[:location]
-      @activities = policy_scope(Activity).search_by_name_and_address_and_type_activity(params[:location])
+      @activities = policy_scope(Activity).algolia_search(params[:location])
     else
       @activities = policy_scope(Activity).order(created_at: :desc)
     end
@@ -39,6 +39,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     authorize @activity
     @booking = Booking.new
+    @review = Review.new
   end
 
   private

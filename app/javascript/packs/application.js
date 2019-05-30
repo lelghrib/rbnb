@@ -7,4 +7,7 @@ initMapbox();
 import {changeSessionMethod} from '../components/navbar';
 changeSessionMethod();
 
+
+
 import "../plugins/flatpickr"
+

@@ -1,23 +1,78 @@
-
-<div class="container">
-  <div class="banner">
-    <div class="d-flex align-items-center justify-content-around">
-      <div>
-        <h1><b>Welcome to actbnb</b></h1>
-        <p>Réservez des activités pour vivre des expériences uniques</p>
-      </div>
-      <%= image_tag 'travelers.png', class:'rounded float-right img-home', style:'height: 400px; width: 400px'%>
+<div class="banner">
+  <div class="container">
+    <h1><strong>Welcome to Actbnb</strong></h1>
+    <p>Book activities for unique experiences.</p>
+    <div class="search-hp">
+      <form action='activities' method='get' class='d-flex align-items-center'>
+        <input id='search' name='location' type='text' placeholder='Location' class='font-italic' style="padding: 10px;width: 300px;margin: 20px;" />
+        <input type='submit' class="btn btn-outline-success btn-lg rounded" value="Find activities !" style="max-height:48px;">
+      </form>
     </div>
+  </div>
+</div>
+<div class="container2 d-flex justify-content-around">
+  <div class="span3">
+    <div class="circle">
+    </div>
+    <p>Activité</p>
+  </div>
+  <div class="span3">
+    <div class="circle">
+    </div>
+    <p>Activité</p>
   </div>
   <div class="search-hp">
     <form action='activities' method='get' class='d-flex align-items-center'>
       <input id='search' name='location' type='text' placeholder='Ex: Parachute Marseille' class='font-italic' style="padding: 10px;width: 300px;margin: 20px;" />
       <input type='submit' class="btn btn-outline-success btn-lg rounded" value="Find activities !" style="max-height:48px;">
     </form>
+  <div class="span3">
+    <div class="circle">
+    </div>
+    <p>Activité</p>
+  </div>
+  <div class="span3">
+    <div class="circle">
+    </div>
+    <p>Activité</p>
   </div>
 </div>
+<div class="avis">
+  <h1>"Book activities for unique experiences"</h1>
+</div>
+<div class="red d-flex justify-content-center">
+  <div class="one">
+    <h5> <strong>As a customer you can</strong></h5>
+    <ul>
+      <li>Find activities in the city you want</li>
+      <li>Find activities in the city you want</li>
+      <li>Find activities in the city you want</li>
+      <li>Find activities in the city you want</li>
+      <li>Find activities in the city you want</li>
+    </ul>
+  </div>
+  <div class="two">
+    <h5> <strong>As a customer you can</strong></h5>
+    <ul>
+      <li>Find activities in the city you want</li>
+      <li>Find activities in the city you want</li>
+      <li>Find activities in the city you want</li>
+      <li>Find activities in the city you want</li>
+      <li>Find activities in the city you want</li>
+    </ul>
+  </div>
+</div>
+<div class="container-news">
 
-
-
-
-
+  <div class="news">
+    <h4>Subscribe to our mailing list</h4>
+    <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+  </div>
+</div>
