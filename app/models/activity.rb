@@ -11,7 +11,7 @@ class Activity < ApplicationRecord
   include PgSearch
 
   pg_search_scope :search_by_name_and_address_and_type_activity,
-    against: [:name, :address, :type_activity],
+    against: [[:name, 'A'], [:address, 'B'], [:type_activity, 'C']],
     using: {
       tsearch: { prefix: true }
     }
