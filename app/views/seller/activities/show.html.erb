@@ -39,7 +39,8 @@
       </div>
 
     <%= simple_form_for([@activity, @booking]) do |f| %>
-      <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :date, type: :date %>
+
       <div class="flex-between mt-4">
         Participants:
         <div class="actions">

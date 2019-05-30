@@ -15,11 +15,11 @@
       </li>
       <li class="nav-item active">
         <% if policy(Activity).index? %>
-          <%= link_to "Activities", activities_path, class: "nav-link" %>
+          <%= link_to "Activities", seller_activities_path, class: "nav-link" %>
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to "Bookings", bookings_path, class: "nav-link" %>
+        <%= link_to "Bookings", seller_bookings_path, class: "nav-link" %>
       </li>
 
       <% if user_signed_in? %>
@@ -39,7 +39,7 @@
           <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
         </li>
           <li class="nav-item active">
-          <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
+          <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
         </li>
       </ul>
 
