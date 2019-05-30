@@ -13,7 +13,7 @@ class ActivitiesController < ApplicationController
     end
 
     if params[:location]
-      @activities = policy_scope(Activity).where('address LIKE ?', "%#{params[:location]}%")
+      @activities = policy_scope(Activity).search_by_name_and_address_and_type_activity(params[:location])
     else
       @activities = policy_scope(Activity).order(created_at: :desc)
     end
