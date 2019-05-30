@@ -710,10 +710,10 @@
   resolved "https://registry.yarnpkg.com/@mapbox/jsonlint-lines-primitives/-/jsonlint-lines-primitives-2.0.2.tgz#ce56e539f83552b58d10d672ea4d6fc9adc7b234"
   integrity sha1-zlblOfg1UrWNENZy6k1vya3HsjQ=
 
-"@mapbox/mapbox-gl-geocoder@^4.3.0":
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/@mapbox/mapbox-gl-geocoder/-/mapbox-gl-geocoder-4.3.0.tgz#391af8e5d14e1d24c648162378a850c303a5b99b"
-  integrity sha512-jmxYcG4U9duvustdC3xwoq0kfn7rwwR6dBuvvIT4fln6Cp3TdI/V1q0lW5lS/0JAzvJuowOoNHaIwNHiiloDyA==
+"@mapbox/mapbox-gl-geocoder@^4.4.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@mapbox/mapbox-gl-geocoder/-/mapbox-gl-geocoder-4.4.0.tgz#411c1cfba6a5ea160991fdbc03b9f1ee4055f0e4"
+  integrity sha512-DBlsMhFJiZSiQs1zAeyLxqZz+1OACRKPseCUMZ2RJP/9E6gTevDs1ey8uoLDSyoHcE8wysycbTxlj60Ojx6etA==
   dependencies:
     "@mapbox/mapbox-sdk" "^0.5.0"
     lodash.debounce "^4.0.6"
