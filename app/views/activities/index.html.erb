@@ -1,5 +1,5 @@
 <!-- <h1 class="text-center">Activities in <%# params[:location].nil? ? return params[:location].capitalize : "all" %></h1> -->
-
+<div class="sticky-top">
 <!-- title of page  -->
 <% if params[:location] != "" && !params[:location].nil? %>
   <h1 class="text-center"> Activities in <%= params[:location] %></h1>
@@ -16,7 +16,7 @@
 
   </form>
 </div>
-
+</div>
 <!-- the map -->
 <!-- <div class="index-activities-container d-flex justify-content-around ml-auto mr-auto"> -->
 
@@ -25,7 +25,7 @@
     No activities found in <strong><%= params[:location]%></strong>
   </div>
 <% else %>
-  <div class="container d-flex justify-content-around mt-4">
+  <div class="container d-flex justify-content-around mt-4 ">
     <div
       id="map"
       style="width: 100%;
