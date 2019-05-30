@@ -1,33 +1,35 @@
-<div class="container-page-show">
-  <div class="banner-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-           url('<%= cl_image_path @activity.photo, height: 300, width: 400, crop: :fill %>')"></div>
-  <div class="d-flex justify-content-between">
-  <div class="container-details h-100">
-    <div class="d-flex justify-content-between mb-3 align-items-center">
-      <h3><%= @activity.name %></h3>
-      <h5><%= @activity.type_activity %></h5>
-      <div class="owner mr-2">
-        <%= image_tag 'avatar.jpg', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <p class="text-center"><%= @activity.seller.first_name %></p>
+<div class="p-5">
+<!-- <p><%= link_to "Back", activities_path %></p>--><div class="container-show d-flex p-4">
+  <div class="container-activity d-flex aligh-items-end mx-3">
+    <div class="card rounded" style="width: 25rem; border-radius: 4px important!">
+      <div class="card-body">
+        <div class="d-flex w-100 justify-content-between">
+          <h5><%= @activity.name %></h5>
+          <h5><%= @activity.type_activity %></h5>
+        </div>
+          <h6 class="mb-2 text-muted"><i class="fas fa-map-marker-alt"></i> <%= @activity.address %>/h6>
+          <div class="d-flex flex-column justify-content-between">
+          <p style="min-height: 150px; margin-top: 20px; color: black;"><%= @activity.description %></p>
+          <% if policy(Activity).index? %>
+            <%= link_to "Back to my bookings", bookings_path %>
+          <% end %>
+        </div>
       </div>
     </div>
-
-    <div class="d-flex mb-3">
-      <p class="mr-5">From: <%= @activity.start_date.strftime("%Y-%d-%m") %></p>
-      <p class="ml-5">To: <%= @activity.end_date.strftime("%Y-%d-%m") %></p>
+    <div class="container-activity-photo d-flex flex-column">
+        <div>
+          <div class="img-details d-flex aligh-items-end justify-content-between w-100 mx-2 px-2">
+              <p>Max: <%= @activity.max_participants %> <i class="fas fa-user-friends"></i></p>
+              <!-- <p>Price: <%= @activity.price %> €/pers</p> -->
+          </div>
+        </div>
+        <%= cl_image_tag @activity.photo, height: 260, width: 287, crop: :fill %>
     </div>
-
-    <div class="d-flex justify-content-between">
-      <h6 class="mb-2 text-muted"><i class="fas fa-map-marker-alt"></i> <%= @activity.address %></h6>
-      <p>Max: <%= @activity.max_participants %> <i class="fas fa-user-friends"></i></p>
-    </div>
-
-    <p style="min-height: 200px; margin-top: 20px;margin-bottom: 40px; color: black;"><%= @activity.description %></p>
   </div>
 
   <div class="container-new-booking">
 
-    <div class="form-container mt-5">
+    <div class="form-container h-100">
 
       <div class="header">
         <div class="header-row">
@@ -50,24 +52,23 @@
 
       <div id="total-price" class="mb-4">Total price: <strong><%= @activity.price %>€ </strong></div>
       <%# f.input :date, :as => :string, :input_html => { :class => 'date_picker' } %>
-
       <%= f.button :submit, class: 'btn btn-outline-success' %>
     <% end %>
 
     </div>
-    </div>
+
+  </div>
+
 </div>
 
 <div class="p-5">
 <h3>Reviews</h3>
 
-<div class="review-create">
-  <a href="#form-review">Leave a review</a>
-</div>
+<a href="#form-review">Leave a review</a>
 
 <div class="cards-reviews">
   <% @activity.reviews.each do |review| %>
-    <div class="card my-2" style="width: 40rem;">
+    <div class="card my-2" style="width: 50rem;">
       <div class="card-body d-flex justify-content-between">
         <div class="review-content">
           <h5 class="card-title"><%= current_user.first_name %> <%= current_user.last_name %></h5>
@@ -91,7 +92,7 @@
     <%= simple_form_for([@activity, @review]) do |f| %>
     <%= f.input :content %>
     <%= f.input :rating, collection: [1, 2, 3, 4, 5] %>
-    <%= f.button :submit, class: "btn btn-outline-success" %>
+    <%= f.button :submit, class: "btn btn-outline-primary" %>
     <% end %>
   </div>
 </div>
