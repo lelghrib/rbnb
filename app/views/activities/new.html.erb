@@ -12,8 +12,8 @@
         <%= f.input :type_activity, collection: ["Outdoor", "Indoor"] %>
       </div>
          <div class="col-md-4">
-           <%= f.input :start_date, type: :date %>
-           <%= f.input :end_date, type: :date %>
+           <%= f.input :start_date, as: :string, required: false, input_html: { id: "range_start" } %>
+           <%= f.input :end_date, as: :string, required: false, input_html: {id: "range_end"} %>
            <%= f.input :photo %>
            <%= f.input :photo_cache, as: :hidden %>
            <%= f.button :submit, class: "btn btn-outline-primary" %>
