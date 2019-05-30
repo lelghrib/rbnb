@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [ :index ]
 
+  namespace :seller do
+    resources :activities, only: :index
+  end
+
 end
