@@ -1,4 +1,4 @@
-<div class="container-page-show">
+<div class="container-page-sh">
   <div class="banner-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
            url('<%= cl_image_path @activity.photo, height: 300, width: 400, crop: :fill %>')"></div>
   <div class="d-flex justify-content-between">
@@ -29,14 +29,19 @@
 
     <div class="form-container mt-5">
       <div class="header">
-        <div class="header-row">
+        <div class="header-row mb-1">
           <div class="big-bold" id="price" data-amount-cents="1"><%= @activity.price %>€</div>
           <div class="small-light"> / PARTICIPANT</div>
         </div>
+        <% Review.where(activity: @activity).average(:rating).round.times do  %>
+        <i class="fas fa-star orange-color"></i>
+        <% end %>
+        (<%= @activity.reviews.count %>)
+
       </div>
 
     <%= simple_form_for([@activity, @booking]) do |f| %>
-      <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker", value: Date.today} %>
       <div class="flex-between mt-4">
         Participants:
         <div class="actions">
@@ -47,10 +52,11 @@
       </div>
       <%= f.input :participants_number, as: :hidden %>
 
-      <div id="total-price" class="mb-4">Total price: <strong><%= @activity.price %>€ </strong></div>
-      <%# f.input :date, :as => :string, :input_html => { :class => 'date_picker' } %>
-
-      <%= f.button :submit, class: 'btn btn-outline-success' %>
+      <div class="d-flex justify-content-between ">
+        <div>Total price:</div>
+      <div id="total-price" class="mb-4 mr-4"> <strong><%= @activity.price %>€ </strong></div>
+      </div>
+      <%= f.button :submit, class: 'btn btn-flat btn-block' %>
     <% end %>
 
     </div>
@@ -87,14 +93,14 @@
 
 <div class="row">
   <div id="form-review" class="col-12 col-md-6 mt-5">
+    <h4>Leave your review</h4>
     <%= simple_form_for([@activity, @review]) do |f| %>
     <%= f.input :content %>
     <%= f.input :rating, collection: [1, 2, 3, 4, 5] %>
-    <%= f.button :submit, class: "btn btn-outline-success" %>
+    <%= f.button :submit, class: "btn btn-flat" %>
     <% end %>
   </div>
 </div>
 </div>
-
 
 <%= javascript_pack_tag 'plusminus' %>
