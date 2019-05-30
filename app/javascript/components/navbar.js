@@ -12,4 +12,4 @@ changeSession.addEventListener('click', (event) => {
 });
 };
 
-export { changeSessionMethod };
+// export { changeSessionMethod };
