@@ -1,5 +1,9 @@
-<div class="p-5">
-<!-- <p><%= link_to "Back", activities_path %></p>--><div class="container-show d-flex p-4">
+<div >
+  <h1 class="text-center">Booking activies</h1>
+<!-- <p><%= link_to "Back", activities_path %></p>--><div class="container-show d-flex justify-content-center p-4">
+
+
+
   <div class="container-activity d-flex aligh-items-end mx-3">
     <div class="card rounded" style="width: 25rem; border-radius: 4px important!">
       <div class="card-body">
@@ -10,9 +14,16 @@
           <h6 class="mb-2 text-muted"><i class="fas fa-map-marker-alt"></i> <%= @activity.address %>/h6>
           <div class="d-flex flex-column justify-content-between">
           <p style="min-height: 150px; margin-top: 20px; color: black;"><%= @activity.description %></p>
+
           <% if policy(Activity).index? %>
-            <%= link_to "Back to my bookings", bookings_path %>
+
+              <div class="call-to-action d-flex justify-content-center">
+
+                <%= link_to "Back to my bookings", bookings_path %>
+              </div>
           <% end %>
+
+
         </div>
       </div>
     </div>
@@ -40,8 +51,8 @@
 
     <%= simple_form_for([@activity, @booking]) do |f| %>
       <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <div class="flex-between mt-4">
-        Participants:
+      <div class="d-flex flex-column flex-between mt-4">
+        <p>Participants:</p>
         <div class="actions">
           <btn href="#" class="btn round-bordered incrementer minus" disabled data-offset="-1">-</btn>
           <span id="counter" data-count="1">1</span>
@@ -50,9 +61,11 @@
       </div>
       <%= f.input :participants_number, as: :hidden %>
 
-      <div id="total-price" class="mb-4">Total price: <strong><%= @activity.price %>€ </strong></div>
+      <div id="total-price" class="mb-4 text-center">Total price: <strong><%= @activity.price %>€ </strong></div>
       <%# f.input :date, :as => :string, :input_html => { :class => 'date_picker' } %>
-      <%= f.button :submit, class: 'btn btn-outline-success' %>
+      <div class="call-to-action d-flex justify-content-center">
+      <%= f.button :submit, value="Book now !" %>
+      </div>
     <% end %>
 
     </div>

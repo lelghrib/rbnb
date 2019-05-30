@@ -1,9 +1,6 @@
-#map {
-  height: 100vh;
-  position: sticky;
-  padding-top: 10px;
+#map{
+  flex-grow: 1;
 }
-
 .mapboxgl-popup {
   max-width: 200px;
   border-radius: 5px;
