@@ -2,6 +2,15 @@
 
 <% @bookings.each do |booking| %>
 <div class="card-product card-product-margin-content">
+<!--   <% if booking.activity.photo.blank? %>
+        <div class="card-category" style="background-image:
+          url('images/Surf.jpg');
+          box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+      <% else %>
+        <div class="card-category" style="background-image:
+          url('<%= cl_image_path activity.photo, height: 300, width: 400, crop: :fill%>');
+          box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+      <% end %> -->
   <%= cl_image_tag booking.activity.photo, height: 300, width: 400, crop: :fill %>
   <div class="card-product-infos">
     <h2><%= booking.activity.name %></h2>
