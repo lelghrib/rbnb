@@ -19,6 +19,8 @@ body{
   background-position: center;
   padding: 80px 0;
   height:470px;
+  background-image: asset-url('wavybanner.png');
+
 }
 
 .banner h1 {
@@ -130,8 +132,8 @@ body{
 }
 
 .travelers{
-  height:300px;
+  height:330px;
   position:relative;
   left: 700px;
-bottom:246px;
+  bottom:246px;
 }
