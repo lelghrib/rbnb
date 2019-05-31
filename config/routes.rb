@@ -16,7 +16,12 @@ Rails.application.routes.draw do
 
   namespace :seller do
     resources :activities, only: [:index, :new, :create, :show]
-    resources :bookings, only: [ :index ]
+    resources :bookings, only: [ :index ] do
+     member do
+         patch :confirmed
+         patch :decline
+      end
+    end
   end
 
 end
