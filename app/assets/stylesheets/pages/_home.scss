@@ -26,7 +26,6 @@ body{
 .banner h1 {
   margin: 0;
   color: black;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
 }
@@ -35,7 +34,6 @@ body{
   font-size: 20px;
   color: black;
   opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .span3 {
@@ -46,15 +44,47 @@ body{
   font-weight: bold;
 }
 
-.circle {
+.circle1 {
   position: relative;
   border-radius: 50%;
   width: 100%;
   height: auto;
   padding-top: 100%;
   margin-bottom: 20px;
-  background: white;
+  background-image : asset-url('canoe.jpg');
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+}
+
+.circle2 {
+  position: relative;
+  border-radius: 50%;
+  width: 100%;
+  height: auto;
+  padding-top: 100%;
+  margin-bottom: 20px;
+  background-image : asset-url('rando.jpg');
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+}
+
+
+.circle3 {
+  position: relative;
+  border-radius: 50%;
+  width: 100%;
+  height: auto;
+  padding-top: 100%;
+  margin-bottom: 20px;
+  background-image : asset-url('bar.jpg');
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
 }
 
 
