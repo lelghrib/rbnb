@@ -33,4 +33,15 @@ class Seller::ActivitiesController < Seller::BaseController
     @booking = Booking.new
     @review = Review.new
   end
+
+  def destroy
+    @activity = Activity.find(params[:id])
+    authorize @activity
+    @activity.destroy
+    redirect_to seller_activities_path
+  end
+
+  def activity_params
+    params.require(:activity).permit(:name, :address, :price, :type_activity, :description, :max_participants, :location, :latitude, :longitude, :photo, :start_date, :end_date)
+  end
 end

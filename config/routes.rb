@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :activities, only: [ :index,:new, :create, :show, :destroy] do
+  resources :activities, only: [ :index,:new, :create, :show] do
     resources :bookings, only: [ :create ]
     resources :reviews, only: [:create]
   end
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :reviews, only: [:index]
 
   namespace :seller do
-    resources :activities, only: [:index, :new, :create, :show]
+    resources :activities, only: [:index, :new, :create, :show, :destroy]
     resources :bookings, only: [ :index ]
   end
 

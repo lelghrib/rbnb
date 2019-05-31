@@ -14,13 +14,13 @@
   transition: all 0.4s ease;
 }
 
-.call-to-action:hover{
+.call-to-action:hover, .call-to-action > a:hover{
   // opacity: 0.6;
   background-color: inherit;
 
 }
 
-.call-to-action > .btn:hover, .call-to-action > .a:hover {
+.call-to-action > .btn:hover, .call-to-action > a:hover {
  transition: all 0.4s ease;
  color:  #57B894;
  background-color: inherit;
