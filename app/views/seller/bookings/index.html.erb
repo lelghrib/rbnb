@@ -22,9 +22,11 @@
         <%= link_to "Decline", decline_seller_booking_path(booking), method: :patch, class: 'btn btn-outline-danger mr-2' %>
       </div>
       <% elsif booking.status == "accepted" %>
+      <%= link_to "Contact buyer", new_booking_message_path(booking), class: 'btn btn-outline-success mr-2' %>
       <i class="fas fa-check green-color"></i>
       <%= booking.status.capitalize %>
       <% else %>
+      <%= link_to "Contact buyer", new_booking_message_path(booking), class: 'btn btn-outline-success mr-2' %>
       <i class="far fa-times-circle red-color"></i>
       <%= booking.status.capitalize %>
       <% end %>
