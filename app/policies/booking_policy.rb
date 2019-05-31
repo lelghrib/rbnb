@@ -11,4 +11,12 @@ class BookingPolicy < ApplicationPolicy
   def index?
     return true
   end
+
+  def confirmed?
+    true
+  end
+
+  def decline?
+    true
+  end
 end
