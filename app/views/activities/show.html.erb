@@ -26,14 +26,7 @@
           <% end %>
         </div>
 
-        <% if @activity.reviews != [] %>
-            <% Review.where(activity: @activity).average(:rating).round.times do  %>
 
-        <i class="fas fa-star orange-color"></i>
-        <% end %>
-
-        (<%= @activity.reviews.count %>)
-        <% end %>
 
         <div class="d-flex justify-content-between">
           <h6 class="mb-2 text-muted"><i class="fas fa-map-marker-alt"></i> <%= @activity.address %></h6>
