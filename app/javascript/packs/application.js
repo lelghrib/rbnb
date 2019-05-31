@@ -5,8 +5,11 @@ import { initMapbox } from '../plugins/init_mapbox';
 initMapbox();
 
 import {changeSessionMethod} from '../components/navbar';
+import {scrollFunction} from '../components/topbutton';
+import {topFunction} from '../components/topbutton';
+
 // changeSessionMethod();
-
-
+// scrollFunction();
+// topFunction();
 
 import "../plugins/flatpickr"

@@ -7,12 +7,12 @@
   <h1 class="text-center"> Your activities</h1>
 <% end %>
 
-<h2 class="text-center mb-4">Choose which activity you want to do</h2>
 <!-- search  -->
 <div class="new-search d-flex justify-content-center">
-  <form action='activities' method='get' class='d-flex align-items-center'>
-    <input id='search' name='location' type='text' placeholder='Location' class='font-italic' style="padding: 10px;width: 300px;margin: 20px;" />
+  <form id= "search-activity" action='activities' method='get' class='d-flex align-items-center'>
+    <input id='search' name='location' type='text' placeholder='Ex: Parachute Marseille' class='font-italic' style="padding: 10px;width: 300px;margin: 20px;" />
     <input type='submit' class="btn btn-outline-success btn-lg rounded" value="New search" style="max-height:48px;">
+
   </form>
 </div>
 <!-- the map -->
@@ -31,7 +31,7 @@
     <!-- Grid of activities  -->
   <div class="activities_list cards color_white text-center">
     <% @activities.each do |activity| %>
-      <%= link_to activity_path(activity) do%>
+      <%= link_to seller_activity_path(activity) do%>
       <% if activity.photo.blank? %>
         <div class="card-category" style="background-image:
           url('images/Surf.jpg');

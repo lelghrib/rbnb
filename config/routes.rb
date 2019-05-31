@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'messages/index'
   get 'reviews/index'
   devise_for :users
   root to: "pages#home"
@@ -8,7 +9,9 @@ Rails.application.routes.draw do
     resources :bookings, only: [ :create ]
     resources :reviews, only: [:create]
   end
-  resources :bookings, only: [ :index ]
+  resources :bookings, only: [ :index ] do
+    resources :messages, only: [:create, :new]
+  end
   resources :reviews, only: [:index]
 
   namespace :seller do
