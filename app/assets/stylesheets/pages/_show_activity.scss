@@ -1,5 +1,5 @@
 .container-page-sh{
-  margin: 0px 250px;
+  margin: 0px 170px;
 }
 .form-container {
   box-shadow: 0 1px 1px rgba(0,0,0,0.1);
@@ -59,7 +59,7 @@
 }
 .container-details{
   flex: 1;
-  padding: 40px 70px 0px 70px;
+  padding: 40px 50px 0px 30px;
 }
 .owner img {
   width: 60px;
@@ -70,4 +70,10 @@
 }
 #total-price{
   font-size: 18px;
+}
+.red-color{
+  color: red;
+}
+.green-color{
+  color: green;
 }

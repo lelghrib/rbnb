@@ -1,4 +1,5 @@
 <div>
+
   <div class="container-page-sh">
     <% if !@activity.photo.blank? %>
     <div class="banner-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
@@ -7,6 +8,7 @@
     <div class="banner-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
     url('<%= cl_image_path 'surf.jpg', height: 300, width: 400, crop: :fill %>')"></div>
     <% end %>
+
     <div class="d-flex justify-content-between">
       <div class="container-details h-100">
         <div class="d-flex justify-content-between mb-3 align-items-center">
@@ -17,6 +19,7 @@
             <p class="text-center"><%= @activity.seller.first_name %></p>
           </div>
         </div>
+
         <div class="d-flex mb-3">
           <% if @activity.start_date != nil && @activty.end_date != nil %>
 
@@ -24,6 +27,20 @@
           <p class="ml-5">To: <%= @activity.end_date.strftime("%Y-%d-%m") %></p>
 
           <% end %>
+
+
+        <% if @activity.reviews == [] %>
+        <p>Be the first to make a review</p>
+        <% else %>
+            <% Review.where(activity: @activity).average(:rating).round.times do  %>
+
+        <i class="fas fa-star orange-color"></i>
+        <% end %>
+
+        (<%= @activity.reviews.count %>)
+        <% end %>
+      </div>
+
 
         </div>
         <div class="d-flex justify-content-between">
@@ -109,4 +126,10 @@
       </div>
     </div>
   </div>
-  <%= javascript_pack_tag 'plusminus' %>
+
+</div>
+</div>
+
+</div>
+<%= javascript_pack_tag 'plusminus' %>
+

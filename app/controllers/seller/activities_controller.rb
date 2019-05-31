@@ -34,6 +34,7 @@ class Seller::ActivitiesController < Seller::BaseController
     @review = Review.new
   end
 
+
   def destroy
     @activity = Activity.find(params[:id])
     authorize @activity
@@ -41,7 +42,11 @@ class Seller::ActivitiesController < Seller::BaseController
     redirect_to seller_activities_path
   end
 
+  private
+
+
   def activity_params
     params.require(:activity).permit(:name, :address, :price, :type_activity, :description, :max_participants, :location, :latitude, :longitude, :photo, :start_date, :end_date)
   end
+
 end
