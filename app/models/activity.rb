@@ -1,7 +1,7 @@
 class Activity < ApplicationRecord
   belongs_to :seller, class_name: 'User'
-  has_many :bookings
-  has_many :reviews
+  has_many :bookings, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   mount_uploader :photo, PhotoUploader
   validates :name, :address, :type_activity, :price, :description, presence: true
   validates :max_participants, :seller, presence: true
