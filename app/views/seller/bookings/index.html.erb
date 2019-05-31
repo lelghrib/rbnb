@@ -1,4 +1,4 @@
-<div class="container p-4">
+<div class="container p-4 booking-height">
   <% if @bookings == [] %>
     <p>You don't have any bookings yet</p>
   <% else %>
@@ -13,10 +13,15 @@
             <p> Total price: <%= booking.total_price %>€</p>
           </div>
         </div>
-        <div class="card-product-status">
+
+
+
+
+        <div class="card-product-status align-items-center">
           <h2>
           <% if booking.status == "pending" %>
             <div class="confirmation-buttons d-flex">
+            <%= link_to "Contact buyer", new_booking_message_path(booking), class: 'btn btn-outline-success mr-2' %>
             <a href="" class="btn btn-outline-primary mr-2">Confirm</a>
             <a href="" class="btn btn-outline-danger">Decline</a>
             </div>

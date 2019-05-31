@@ -1,15 +1,16 @@
 .footer {
   background: #333333;
+  position: sticky;
+  bottom:0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100px;
   padding: 0px 50px;
   color: #454545;
-  margin-top: 5%;
+  // margin-top: 5%;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
-
   // color: rgba(0,0,0,0.3);
 }
 .footer-links {
