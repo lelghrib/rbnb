@@ -51,19 +51,11 @@
         <% else %>
             <% Review.where(activity: @activity).average(:rating).round.times do  %>
 
-
-
-
-
         <i class="fas fa-star orange-color"></i>
         <% end %>
 
         (<%= @activity.reviews.count %>)
         <% end %>
-
-
-
-
       </div>
 
     <%= simple_form_for([@activity, @booking]) do |f| %>
