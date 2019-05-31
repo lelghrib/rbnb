@@ -19,4 +19,7 @@ class ActivityPolicy < ApplicationPolicy
   def show?
     return true
   end
+  def destroy?
+    true
+  end
 end
