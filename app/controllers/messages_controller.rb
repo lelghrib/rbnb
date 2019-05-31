@@ -22,10 +22,16 @@ class MessagesController < ApplicationController
 
     if @message.save
       @messages = Message.where(booking: @booking)
-      redirect_to new_booking_message_path(@booking)
+      respond_to do |format|
+      format.html {redirect_to new_booking_message_path(@booking)}
+      format.js
+    end
     else
       @messages = Message.where(booking: @booking)
-      render :new
+      respond_to do |format|
+      format.html { render :new }
+      format.js
+    end
     end
   end
 

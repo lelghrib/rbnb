@@ -27,7 +27,7 @@
     No activities found in <strong><%= params[:location]%></strong>
   </div>
 <% else %>
-  <div class="container d-flex justify-content-around mt-4">
+  <div class="container d-flex justify-content-around mt-4" >
     <div
       id="map"
       style="width: 100%;
@@ -38,7 +38,7 @@
     ></div>
 
       <!-- Grid of activities  -->
-    <div class="activities_list cards color_white text-center">
+    <div class="activities_list cards color_white text-center "id="activity-map-container">
       <% @activities.each do |activity| %>
         <%= link_to activity_path(activity) do%>
         <% if activity.photo.blank? %>
