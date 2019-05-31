@@ -3,6 +3,11 @@ body{
   background-color:white;
 }
 
+.container{
+  position:relative;
+  top: 70px;
+}
+
 .search-hp{
   position: relative;
   bottom: 22px;
@@ -12,7 +17,7 @@ body{
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 200px 0;
+  padding: 80px 0;
   height:470px;
 }
 
@@ -118,4 +123,15 @@ body{
 
 .form-control{
   width:400px;
+}
+
+.container-news{
+  background-image: asset-url('wavyfoot.png');
+}
+
+.travelers{
+  height:300px;
+  position:relative;
+  left: 700px;
+bottom:246px;
 }
