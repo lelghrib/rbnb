@@ -23,6 +23,12 @@
     </div>
 
     <p style="min-height: 200px; margin-top: 20px;margin-bottom: 40px; color: black;"><%= @activity.description %></p>
+
+        <div class="call-to-action">
+          <%= link_to "Delete activity", activity_path(@activity),
+          method: :delete,
+          data: { confirm: "Are you sure?" }%>
+        </div>
   </div>
 
   <div class="container-new-booking">
@@ -33,10 +39,16 @@
           <div class="big-bold" id="price" data-amount-cents="1"><%= @activity.price %>€</div>
           <div class="small-light"> / PARTICIPANT</div>
         </div>
-        <% Review.where(activity: @activity).average(:rating).round.times do  %>
+        <% if @activity.reviews == [] %>
+        <p>No reviews</p>
+        <% else %>
+            <% Review.where(activity: @activity).average(:rating).round.times do  %>
         <i class="fas fa-star orange-color"></i>
         <% end %>
         (<%= @activity.reviews.count %>)
+
+         <% end %>
+
 
       </div>
 
