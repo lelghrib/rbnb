@@ -1,6 +1,11 @@
 <div class="container-page-sh">
+  <% if !@activity.photo.blank? %>
   <div class="banner-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
            url('<%= cl_image_path @activity.photo, height: 300, width: 400, crop: :fill %>')"></div>
+  <% else %>
+  <div class="banner-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+           url('<%= cl_image_path 'surf.jpg', height: 300, width: 400, crop: :fill %>')"></div>
+  <% end %>
   <div class="d-flex justify-content-between">
   <div class="container-details h-100">
     <div class="d-flex justify-content-between mb-3 align-items-center">
@@ -33,15 +38,17 @@
           <div class="big-bold" id="price" data-amount-cents="1"><%= @activity.price %>€</div>
           <div class="small-light"> / PARTICIPANT</div>
         </div>
+        <% if !Review.where(activity: @activity).empty? %>
         <% Review.where(activity: @activity).average(:rating).round.times do  %>
         <i class="fas fa-star orange-color"></i>
+        <% end %>
         <% end %>
         (<%= @activity.reviews.count %>)
 
       </div>
 
     <%= simple_form_for([@activity, @booking]) do |f| %>
-      <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker", value: Date.today} %>
+      <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker", value: @activity.start_date} %>
       <div class="flex-between mt-4">
         Participants:
         <div class="actions">
