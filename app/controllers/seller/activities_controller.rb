@@ -26,4 +26,11 @@ class Seller::ActivitiesController < Seller::BaseController
       render :new
     end
   end
+
+  def show
+    @activity = Activity.find(params[:id])
+    authorize @activity
+    @booking = Booking.new
+    @review = Review.new
+  end
 end
