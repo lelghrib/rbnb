@@ -15,7 +15,7 @@ const plusminus = () => {
   plus.addEventListener('click', (event) => {
   const number = parseInt(counter.innerText, 10) + parseInt(plus.dataset.offset, 10);
   counter.innerText = number;
-  totalPrice.innerText = `Total price: ${number * parseInt(price.innerText, 10)}€`;
+  totalPrice.innerText = `${number * parseInt(price.innerText, 10)}€`;
   });
   const form = document.querySelector('#new_booking').addEventListener('submit', (event) =>{
   // event.preventDefault();
