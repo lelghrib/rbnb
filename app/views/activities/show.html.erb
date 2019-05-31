@@ -38,12 +38,15 @@
           <div class="big-bold" id="price" data-amount-cents="1"><%= @activity.price %>€</div>
           <div class="small-light"> / PARTICIPANT</div>
         </div>
+
         <% if !Review.where(activity: @activity).empty? %>
+
         <% Review.where(activity: @activity).average(:rating).round.times do  %>
         <i class="fas fa-star orange-color"></i>
         <% end %>
-        <% end %>
+       
         (<%= @activity.reviews.count %>)
+        <% end %>
 
       </div>
 
@@ -77,26 +80,31 @@
   <a href="#form-review">Leave a review</a>
 </div>
 
-<div class="cards-reviews">
-  <% @activity.reviews.each do |review| %>
-    <div class="card my-2" style="width: 40rem;">
-      <div class="card-body d-flex justify-content-between">
-        <div class="review-content">
-          <h5 class="card-title"><%= current_user.first_name %> <%= current_user.last_name %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= Date.today %></h6>
-          <p class="card-text"><%= review.content %></p>
-        </div>
-        <div class="review-stars orange-color">
-          <p>
-            <% review.rating.times do %>
-            <i class="fas fa-star"></i>
-            <% end %>
-          </p>
+<% if @activity.reviews == [] %>
+  <p>Be the first to leave a riview</p>
+  <% else %>
+  <div class="cards-reviews">
+    <% @activity.reviews.each do |review| %>
+      <div class="card my-2" style="width: 40rem;">
+        <div class="card-body d-flex justify-content-between">
+          <div class="review-content">
+            <h5 class="card-title"><%= current_user.first_name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= Date.today %></h6>
+            <p class="card-text"><%= review.content %></p>
+          </div>
+          <div class="review-stars orange-color">
+            <p>
+              <% review.rating.times do %>
+              <i class="fas fa-star"></i>
+              <% end %>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+
+<% end %>
 
 <div class="row">
   <div id="form-review" class="col-12 col-md-6 mt-5">

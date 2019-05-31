@@ -61,7 +61,7 @@ body{
 .one{
   background-color: white;
   height: 300px;
-  width: 500px;
+  width: 386px;
   margin-right: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 20px;
@@ -72,7 +72,7 @@ body{
 .two{
   background-color: white;
   height: 300px;
-  width: 500px;
+  width: 386px;
   margin-left: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 20px;
@@ -85,10 +85,11 @@ body{
   height: 300px;
   margin-right: 250px;
   margin-left: 250px;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 20px;
+  padding-right: 50px;
   border-radius:8px;
 
 }
@@ -115,6 +116,6 @@ body{
   padding-top: 20px;
 }
 
-// .container-news{
-//   background-color:bl
-// }
+.form-control{
+  width:400px;
+}

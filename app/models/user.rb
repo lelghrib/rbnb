@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and
   has_many :activities, dependent: :destroy, foreign_key: :seller_id
   has_many :bookings
+  has_many :messages
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable,
          omniauth_providers: %i[facebook google]
