@@ -18,11 +18,22 @@
           </div>
         </div>
         <div class="d-flex mb-3">
-          <% if @activity.start_date != nil && @activty.end_date != nil %>
+          <% if @activity.start_date != nil && @activity.end_date != nil %>
+
           <p class="mr-5">From: <%= @activity.start_date.strftime("%Y-%d-%m") %></p>
           <p class="ml-5">To: <%= @activity.end_date.strftime("%Y-%d-%m") %></p>
           <% end %>
         </div>
+
+        <% if @activity.reviews != [] %>
+            <% Review.where(activity: @activity).average(:rating).round.times do  %>
+
+        <i class="fas fa-star orange-color"></i>
+        <% end %>
+
+        (<%= @activity.reviews.count %>)
+        <% end %>
+
         <div class="d-flex justify-content-between">
           <h6 class="mb-2 text-muted"><i class="fas fa-map-marker-alt"></i> <%= @activity.address %></h6>
           <p>Max: <%= @activity.max_participants %> <i class="fas fa-user-friends"></i></p>
