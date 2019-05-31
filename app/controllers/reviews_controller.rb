@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to activity_path(@activity)
     else
+      @booking = Booking.new
       render 'activities/show'
     end
   end
